@@ -2,19 +2,25 @@ import 'rxjs/add/operator/map';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FotoModule } from '../foto/foto.module';
+import { PainelModule } from '../painel/painel.module';
 import { TesteComponent } from './teste/teste.component';
-import { HttpModule } from '@angular/http';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { ListagemComponent } from './listagem/listagem.component';
+import {routing} from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TesteComponent
+    TesteComponent,
+    ListagemComponent,
+    CadastroComponent
   ],
   imports: [
-    BrowserModule, FotoModule, HttpModule
+    BrowserModule, FotoModule, HttpModule, PainelModule, routing
   ],
   providers: [],
   bootstrap: [AppComponent]
