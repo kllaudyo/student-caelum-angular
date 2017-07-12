@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FotoModule } from '../foto/foto.module';
@@ -20,7 +21,7 @@ import {routing} from './app.routes';
     CadastroComponent
   ],
   imports: [
-    BrowserModule, FotoModule, HttpModule, PainelModule, routing
+    BrowserModule, FotoModule, HttpModule, PainelModule, routing, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
