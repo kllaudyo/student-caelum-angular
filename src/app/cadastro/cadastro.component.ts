@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FotoComponent } from '../../foto/foto.component';
 
 @Component({
     selector: 'app-cadastro',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 
 export class CadastroComponent {
 
+    foto: FotoComponent = new FotoComponent();
+
+    public cadastrar(event) {
+        event.preventDefault();
+        console.log(this.foto);
+    }
 }

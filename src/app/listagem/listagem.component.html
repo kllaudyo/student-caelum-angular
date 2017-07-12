@@ -16,8 +16,13 @@
         </div>
     </div>
     <br />
+    <div class="form-group">
+        <label>Filtrar</label>
+        <input #filtro (keyup)="0" class="form-control"  placeholder="filtrar pelo titulo da foto" />
+    </div>
+
     <div class="row">
-        <app-painel *ngFor="let foto of fotos" titulo="{{foto.titulo}}" class="col-md-2">
+        <app-painel *ngFor="let foto of fotos | filtroPorTitulo:filtro.value" titulo="{{foto.titulo | uppercase }}" class="col-md-2">
             <app-foto  url="{{foto.url}}" title="{{foto.titulo}}"></app-foto>
         </app-painel>
     </div>
