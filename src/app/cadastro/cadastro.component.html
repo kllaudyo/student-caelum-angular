@@ -3,7 +3,10 @@
         <div class="form-group">
             <label>titulo</label>
             <input class="form-control" name="titulo" formControlName="titulo" [(ngModel)]="foto.titulo" />
-            <small *ngIf="formulario.controls.titulo.invalid && formulario.controls.url.dirty" class="form-control alert-danger">Título obrigatório</small>
+            <div *ngIf="!formulario.controls.titulo.valid">
+                <small *ngIf="formulario.controls.titulo.errors.required && formulario.controls.titulo.dirty" class="form-control alert-danger">Título obrigatório</small>
+                <small *ngIf="formulario.controls.titulo.errors.minlength" class="form-control alert-danger">Título minimo é 5</small>
+            </div>
         </div>
         <div class="form-group">
             <label>URL</label>
