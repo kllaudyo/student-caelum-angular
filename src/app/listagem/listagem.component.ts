@@ -9,9 +9,11 @@ import { FotoService } from '../../foto/foto.service';
 
 export class ListagemComponent {
 
+    service: FotoService;
     fotos: Object[] = [];
 
     constructor(service: FotoService) {
+        this.service = service;
         service.lista().subscribe(
             fotos => this.fotos = fotos,
             error => console.log(error)
@@ -20,6 +22,7 @@ export class ListagemComponent {
 
     excluir(foto: FotoComponent): void {
         console.log('excluir a foto: ' + foto.titulo);
+        this.service.deletar(foto).subscribe(response => console.log('foto excluida com sucesso'), error => console.log(error));
     }
 
 }
