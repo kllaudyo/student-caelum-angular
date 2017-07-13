@@ -18,8 +18,8 @@ export class ListagemComponent {
         );
     }
 
-    excluir(): void {
-        console.log('chegou ate aqui meu brother');
+    excluir(foto: FotoComponent): void {
+        console.log('excluir a foto: ' + foto.titulo);
     }
 
 }

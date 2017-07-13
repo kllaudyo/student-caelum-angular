@@ -24,7 +24,7 @@
     <div class="row">
         <app-painel *ngFor="let foto of fotos | filtroPorTitulo:termo" titulo="{{foto.titulo | uppercase }}" class="col-md-2">
             <app-foto  url="{{foto.url}}" title="{{foto.titulo}}"></app-foto>
-            <button class="btn btn-danger btn-block" (click)="excluir()">Excluir</button>
+            <button class="btn btn-danger btn-block" (click)="excluir(foto)">Excluir</button>
         </app-painel>
     </div>
 </div>
