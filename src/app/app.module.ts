@@ -1,4 +1,5 @@
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
