@@ -1,29 +1,38 @@
-<div class="jumbotron">
-    <h1 class="text-center">
-        Caelum Galeria
-    </h1>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <form>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <a [routerLink]="['/cadastro']" class="btn btn-primary">Nova foto</a>
-                    </span>
-                </div>
-            </form>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FrontZooEnd</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a [routerLink]="['/cadastro']">Adicionar Foto <span class="sr-only">(current)</span></a></li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="termo" name="termo" class="form-control" placeholder="Filtrar">
+            </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a [routerLink]="['/cadastro']">Adicionar Foto antigo</a></li>
+        </ul>
         </div>
     </div>
+</nav>
+<div class="container">
+    <p *ngIf="mensagem.length" class="alert alert-success">{{mensagem}}</p>
+
     <br />
-    <div class="form-group">
-        <label>Filtrar</label>
-        <input [(ngModel)]="termo" name="termo" class="form-control"  placeholder="filtrar pelo titulo da foto" />
-    </div>
 
     <div class="row">
-        <app-painel *ngFor="let foto of fotos | filtroPorTitulo:termo" titulo="{{foto.titulo | uppercase }}" class="col-md-2">
-            <app-foto  url="{{foto.url}}" title="{{foto.titulo}}"></app-foto>
+        <app-painel *ngFor="let foto of fotos | filtroPorTitulo:termo" titulo="{{foto.titulo | uppercase }}" class="col-md-6">
+            <app-foto  url="{{foto.url}}" title="{{foto.titulo}}"></app-foto><br />
             <button class="btn btn-danger btn-block" (click)="excluir(foto)">Excluir</button>
         </app-painel>
     </div>
